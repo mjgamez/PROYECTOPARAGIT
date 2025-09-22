@@ -3,7 +3,8 @@ package Interfaces;
 import java.util.ArrayList;
 
 public interface CRUD {
-  public void add(String nombre);
+  
+  public boolean add(String nombre);
 
   public int size();
 
