@@ -1,15 +1,8 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-
-
-// Menú principal
 public class MenuApp {
-    private Crud<String> alumnos = new Alumnos();
-    private Crud<String> materias = new Materias();
+   
     private Scanner sc = new Scanner(System.in);
-
 
     public void iniciar() {
         boolean salir = false;
@@ -32,69 +25,68 @@ public class MenuApp {
     }
 
     private void menuAlumnos() {
+        boolean salir= false;
+        while(!salir){
         System.out.println("===== ALUMNOS =====");
-        System.out.println("1. Agregar alumno");
-        System.out.println("2. Listar alumno por posición");
-        System.out.println("3. Cantidad de alumnos");
-        System.out.println("4. Eliminar alumno por posición");
+        System.out.println("1. Listar Alumnos");
+        System.out.println("2. Agregar Alumnos");
+        System.out.println("3. Eliminar Alumnos");
+        System.out.println("4. Atrás");
         System.out.print("Seleccione una opción: ");
         int opcion = sc.nextInt();
         sc.nextLine();
 
+
         switch (opcion) {
+                      
             case 1 -> {
-                System.out.print("Nombre del alumno: ");
-                String nombre = sc.nextLine();
-                alumnosCrud.add(nombre);
+                // listar alumnos
             }
             case 2 -> {
-                System.out.print("Posición: ");
-                int pos = sc.nextInt();
-                sc.nextLine();
-                System.out.println("Alumno: " + alumnosCrud.get(pos));
+               // Agregar alumnos
             }
-            case 3 -> System.out.println("Cantidad de alumnos: " + alumnosCrud.size());
+            case 3 -> {
+                // Eliminar alumnos
+            }
             case 4 -> {
-                System.out.print("Posición a eliminar: ");
-                int pos = sc.nextInt();
-                sc.nextLine();
-                alumnosCrud.delete(pos);
+                salir= true;
+               break;
             }
-            default -> System.out.println("Opción inválida");
+          
+            default -> {}
         }
+    }
     }
 
     private void menuMaterias() {
+        boolean salir = false;
+        while(!salir){
         System.out.println("===== MATERIAS =====");
         System.out.println("1. Agregar materia");
-        System.out.println("2. Listar materia por posición");
-        System.out.println("3. Cantidad de materias");
-        System.out.println("4. Eliminar materia por posición");
+        System.out.println("2. Listar materia ");
+        System.out.println("3. Eliminar materia ");
+        System.out.println("4. Volver");
         System.out.print("Seleccione una opción: ");
         int opcion = sc.nextInt();
         sc.nextLine();
 
         switch (opcion) {
             case 1 -> {
-                System.out.print("Nombre de la materia: ");
-                String nombre = sc.nextLine();
-                materiasCrud.add(nombre);
+                // agregar materia
             }
             case 2 -> {
-                System.out.print("Posición: ");
-                int pos = sc.nextInt();
-                sc.nextLine();
-                System.out.println("Materia: " + materiasCrud.get(pos));
+                // lista materias
             }
-            case 3 -> System.out.println("Cantidad de materias: " + materiasCrud.size());
+
+            case 3 -> {
+                // Eliminar materias
+            }
             case 4 -> {
-                System.out.print("Posición a eliminar: ");
-                int pos = sc.nextInt();
-                sc.nextLine();
-                materiasCrud.delete(pos);
+                // salir
             }
             default -> System.out.println("Opción inválida");
-        }
+        }}
+
     }
 
     public static void main(String[] args) {
