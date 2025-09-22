@@ -1,47 +1,49 @@
 package Materia;
 
+import Interfaces.CRUD;
+import java.util.ArrayList;
 
-public class Materias{
-    long id;
-    String nombre;
-   
+public class Materias implements CRUD {
+
+    private ArrayList<String> materias;
+
+    public Materias() {
+        materias = new ArrayList<>();
+    }
+
+    public boolean add(String nombre) {
+        if(!materias.contains(nombre))
+            return materias.add(nombre);
+        return false;
+    }
     
-    public Materias(){
-        this(0,"");
-    }
 
-    public Materias(Materias al){
-        this.id = al.id;
-        this.nombre = al.nombre;
+     @Override
+     public int size() {
+         return materias.size();
+
+     }
+
+     @Override
+     public boolean delete(int position) {
+        if(position >=0 && position < materias.size()){
+            materias.remove(position);
+            return true;
+        }
+        return false;
+     }
+
+     @Override
+     public String get(int position) {
+        if (position >=0 && position < materias.size()){
+           return materias.get(position);
+        }
+        return null;
+     }
+
+     @Override
+     public ArrayList<String> getAll() {
+        return new ArrayList<>(materias);
         
-        
-    }    
-
-    public Materias(long id, String nombre){
-        this.id = id;
-        this.nombre = nombre;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }  
-
-    @Override
-    public String toString() {
-        return String.format("ID: %d, Nombre: %s", this.id, this.nombre);
-    }
-
+     }
 }
-
