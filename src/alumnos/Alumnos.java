@@ -18,11 +18,12 @@ public class Alumnos implements CRUD {
     }
 
     @Override
-    public void add(String nombre) {
-        if (!nombre.trim().isEmpty()) {
+    public boolean add(String nombre) {
+        if (!alumnos.contains(nombre)) {
             alumnos.add(nombre.trim());
+            return true;
         } else {
-            System.out.println("Error. Introduce un nombre correcto.");
+            return false;
         }
     }
 
