@@ -14,17 +14,17 @@ public class Alumnos implements CRUD {
 
     @Override
     public String toString() {
-        return "";
+        return alumnos.toString();
     }
 
     @Override
     public boolean add(String nombre) {
-        if (!alumnos.contains(nombre)) {
-            alumnos.add(nombre.trim());
+        nombre = nombre.trim();
+        if (!alumnos.contains(nombre) && !nombre.isEmpty()) {
+            alumnos.add(nombre);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     @Override
